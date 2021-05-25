@@ -1,0 +1,10 @@
+<h1>Your booked rooms</h1>
+  <%= form_for Room.new do |f| %>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+
+    <%= f.label :home_type %>
+    <%= f.text_field :home_type %>
+
+  <%= f.submit "Create rooms" %>
+<% end %>
