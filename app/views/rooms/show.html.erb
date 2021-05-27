@@ -1,0 +1,33 @@
+<h1>Show room page</h1>
+
+  <% if @rooms.photos.attached? %>
+    <% @rooms.photos.each do |photo| %>
+      <%= image_tag photo, width: 100 %>
+    <% end %>
+      <% else %>
+      Unavailable
+  <% end %>
+
+  <p>Description: <%= @rooms.description %></p>
+  <p>Home type: <%= @rooms.home_type %></p>
+  <p>Number of bedroom(s): <%= @rooms.bed_room %></p>
+  <p>Number of bathroom(s): <%= @rooms.bath_room %></p>
+  <p>Internet provided <% if @rooms.have_internet %>
+        ✓
+      <% else %>
+        ✕
+      <% end %></p>
+  <p>TV provided <% if @rooms.have_tv %>
+        ✓
+      <% else %>
+        ✕
+      <% end %></p>
+  <p>Heater provided <% if @rooms.have_heater %>
+        ✓
+      <% else %>
+        ✕
+      <% end %></p>
+  <p>Rate/night <%= @rooms.rate_per_night %></p>
+
+
+<%= link_to "Back to list of rooms", rooms_url %>

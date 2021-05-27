@@ -3,7 +3,7 @@
 <% if user_signed_in? %>
   <%= link_to "Logout", destroy_user_session_url, method: :delete %>
   <%= link_to "Create room", new_room_url %>
-  <%= link_to "Show rooms", rooms_url %>
+  <%= link_to "List of rooms", rooms_url %>
     <p>Hi are you looking for a room to book?</p>
   <% else %>
     <%= link_to "Login", new_user_session_url %>

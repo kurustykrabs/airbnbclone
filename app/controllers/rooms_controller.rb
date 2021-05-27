@@ -38,7 +38,8 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @rooms = Room.all
+    @rooms = Room.find(params[:id])
+    # @photo = @rooms.photo
   end
 
   private

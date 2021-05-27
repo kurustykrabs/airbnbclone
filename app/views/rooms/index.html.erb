@@ -1,54 +1,63 @@
 <h1>List of available rooms</h1>
 
-<% @rooms.each do |room| %>
+<table>
+  <thead>
+    <tr>
+      <th>Photos</th>
+      <th>Description</th>
+      <th>Home type</th>
+      <th>Bedroom</th>
+      <th>Bathroom</th>
+      <th>Internet provided</th>
+      <th>TV provided</th>
+      <th>Heater provided</th>
+      <th>Rate/night</th>
+      <th></th>
+      <th></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-  <% if room.photos.attached? %>
-    <% room.photos.each do |photo| %>
-      <%= image_tag photo, width: 100 %>
-    <% end %>
-      <% else %>
-      Unavailable
-    <% end %>
+  <tbody>
+    <% @rooms.each do |room| %>
+    <tr>
+      <td><% if room.photos.attached? %>
+            <% room.photos.each do |photo| %>
+              <%= image_tag photo, width: 100 %>
+            <% end %>
+              <% else %>
+              Unavailable
+          <% end %></td>
 
-  <%= room.description %>
-  <%= room.home_type %>
-  <%= room.bed_room %>
-  <%= room.bath_room %>
-  <% if room.have_internet %>
-    ✓
-  <% else %>
-    ✕
-  <% end %>
+      <td><%= room.description %></td>
+      <td><%= room.home_type %></td>
+      <td><%= room.bed_room %></td>
+      <td><%= room.bath_room %></td>
 
-  <% if room.have_internet %>
-    ✓
-  <% else %>
-    ✕
-  <% end %>
+      <td><% if room.have_internet %></td>
+            ✓
+          <% else %>
+            ✕
+          <% end %>
 
-  <% if room.have_tv %>
-    ✓
-  <% else %>
-    ✕
-  <% end %>
+      <td><% if room.have_tv %></td>
+            ✓
+          <% else %>
+            ✕
+          <% end %>
 
-  <% if room.have_tv %>
-    ✓
-  <% else %>
-    ✕
-  <% end %>
+      <td><% if room.have_heater %></td>
+            ✓
+          <% else %>
+            ✕
+          <% end %>
 
-  <% if room.have_heater %>
-    ✓
-  <% else %>
-    ✕
-  <% end %>
-
-  <%= room.rate_per_night %>
-  <%= link_to "Edit room", edit_room_url(room) %>
-  <%= link_to "Delete room", room_url(room), method: :delete, data: { confirm: 'Are you sure you want to delete?' } %>
-
-<% end %>
-
-
+      <td><%= room.rate_per_night %></td>
+      <td><%= link_to "Show room", room_url(room) %></td>
+      <td><%= link_to "Edit room", edit_room_url(room) %></td>
+      <td><%= link_to "Delete room", room_url(room), method: :delete, data: { confirm: 'Are you sure you want to delete?' } %></td>
+    </tr>
+      <% end %>
+  </tbody>
+</table>
 <%= link_to "Back to home", root_url %>
