@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   #letter_opener is modifiable
 
   resources :rooms
-
+  resources :bookings
 
 end

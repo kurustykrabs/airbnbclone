@@ -31,6 +31,12 @@ class RoomsController < ApplicationController
     end
   end
 
+  def destroy
+    @rooms = Room.find(params[:id])
+    @rooms.destroy
+    redirect_to rooms_url(current_user), notice: 'Room deleted'
+  end
+
   def show
     @rooms = Room.all
   end
