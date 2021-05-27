@@ -1,0 +1,14 @@
+<h1>Booking page</h1>
+
+<%= form_for Booking.new do |f| %>
+  <%= f.label :start_date %>
+  <%= f.datetime_field :start_date %>
+
+  <%= f.label :end_date %>
+  <%= f.datetime_field :end_date %>
+
+  <%= f.submit "Create booking" %>
+
+<% end %>
+<br>
+<%= link_to "Back to rooms", rooms_url %>
