@@ -1,6 +1,6 @@
 <h1>Host a room</h1>
 
-  <%= form_for Room.new do |f| %>
+  <%= form_for @rooms do |f| %>
 
     <%= f.label :photos %>
     <%= f.file_field :photos, multiple: true %>

@@ -4,11 +4,12 @@ Rails.application.routes.draw do
   root to: 'pages#index'
 
 
-  mount LetterOpenerWeb::Engine, at: "/users/confirmation" if Rails.env.development?
+  # mount LetterOpenerWeb::Engine, at: "/users/confirmation" if Rails.env.development?
   # mount LetterOpenerWeb::Engine, at: "/users/inbox" if Rails.env.development?
 
   #letter_opener is modifiable
 
   resources :rooms
+
 
 end

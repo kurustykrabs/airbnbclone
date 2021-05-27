@@ -1,0 +1,54 @@
+<h1>List of available rooms</h1>
+
+<% @rooms.each do |room| %>
+
+  <% if room.photos.attached? %>
+    <% room.photos.each do |photo| %>
+      <%= image_tag photo, width: 100 %>
+    <% end %>
+      <% else %>
+      Unavailable
+    <% end %>
+
+  <%= room.description %>
+  <%= room.home_type %>
+  <%= room.bed_room %>
+  <%= room.bath_room %>
+  <% if room.have_internet %>
+    ✓
+  <% else %>
+    ✕
+  <% end %>
+
+  <% if room.have_internet %>
+    ✓
+  <% else %>
+    ✕
+  <% end %>
+
+  <% if room.have_tv %>
+    ✓
+  <% else %>
+    ✕
+  <% end %>
+
+  <% if room.have_tv %>
+    ✓
+  <% else %>
+    ✕
+  <% end %>
+
+  <% if room.have_heater %>
+    ✓
+  <% else %>
+    ✕
+  <% end %>
+
+  <%= room.rate_per_night %>
+  <%= link_to "Edit room", edit_room_url(room) %>
+  <%= link_to "Delete room", room_url(room), method: :delete, data: { confirm: 'Are you sure you want to delete?' } %>
+
+<% end %>
+
+
+<%= link_to "Back to home", root_url %>
