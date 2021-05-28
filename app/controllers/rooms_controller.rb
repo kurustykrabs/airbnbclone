@@ -38,7 +38,7 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @rooms = Room.find(params[:id])
+    @room = Room.find(params[:id])
     # @photo = @rooms.photo
   end
 

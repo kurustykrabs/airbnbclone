@@ -1,9 +1,6 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = Booking.all
-  end
-
-  def show
+    @booking = Booking.all
   end
 
   def new
@@ -13,8 +10,14 @@ class BookingsController < ApplicationController
   def create
     @booking = current_user.bookings.build(booking_params)
     if @booking.save
-      redirect_to root_url, notice: 'Booked successfully'
+      redirect_to rooms_url, notice: 'Booked successfully'
+    else
+      render :new
     end
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
   end
 
   private

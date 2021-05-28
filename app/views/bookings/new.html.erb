@@ -1,6 +1,6 @@
 <h1>Booking page</h1>
 
-<%= form_for Booking.new do |f| %>
+<%= form_for Booking.new(room_id: params[:room_id] ) do |f| %>
   <%= f.label :start_date %>
   <%= f.datetime_field :start_date %>
 
@@ -8,7 +8,7 @@
   <%= f.datetime_field :end_date %>
 
   <%= f.submit "Create booking" %>
-
+  <%= f.hidden_field :room_id %>
 <% end %>
 <br>
 <%= link_to "Back to rooms", rooms_url %>

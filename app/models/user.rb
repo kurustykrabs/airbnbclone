@@ -6,5 +6,6 @@ class User < ApplicationRecord
          :confirmable
   has_one_attached :avatar
   has_many :rooms
-  
+  has_many :bookings
+
 end
