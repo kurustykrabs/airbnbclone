@@ -25,9 +25,9 @@ class RoomsController < ApplicationController
     @rooms = Room.find(params[:id])
     @rooms.update(room_params)
     if @rooms.save
-      redirect_to room_url(current_user)
+      redirect_to rooms_url
     else
-      render room_url(current_user), notice:'Updated successfully'
+      render rooms_url, notice:'Updated successfully'
     end
   end
 
